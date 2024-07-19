@@ -14,7 +14,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/kitech/qt.go/qtrt"
+	"github.com/qtui/qtrt"
 )
 
 func staticMetaCallFn() unsafe.Pointer { return C.qt_static_meta_call_cgo }
@@ -124,7 +124,7 @@ func qt_meta_call_go(_o unsafe.Pointer, _c int, _id int, _a unsafe.Pointer) int 
 	return _id
 }
 
-/////
+// ///
 type _CallType = int
 
 const (

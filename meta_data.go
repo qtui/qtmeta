@@ -15,7 +15,7 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/kitech/qt.go/qtrt"
+	"github.com/qtui/qtrt"
 )
 
 func init() { log.SetFlags(log.Flags() | log.Lshortfile) }
@@ -552,7 +552,7 @@ func (this *QtMetaData) Dump() string {
 	return s
 }
 
-/////
+// ///
 type ClassInfo struct {
 	Key      string
 	Value    string

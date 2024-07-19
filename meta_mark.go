@@ -9,7 +9,7 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/kitech/qt.go/qtrt"
+	"github.com/qtui/qtrt"
 )
 
 // syntax parser and mark relate types
@@ -22,7 +22,7 @@ type Q_META_SECTION_END struct{}
 const qt_mark_tag = "qt"
 const newfn_prefix = "NewForInherit"
 
-/////
+// ///
 // Derive(this)
 // pargs, args for base1, base2...
 func Derive(obj interface{}, bargs ...[]interface{}) {
@@ -122,6 +122,7 @@ func newDeriveContext(obj interface{}, bargs ...[]interface{}) *deriveContext {
 	this.fldcnt = this.objty.NumField()
 
 	var dctx_dtored = false
+	_ = dctx_dtored
 	runtime.SetFinalizer(this, func(obj interface{}) { dctx_dtored = true })
 	// we sure it will be GCed. But maybe need long to GCed
 	// time.AfterFunc(5*time.Second, func() { qtrt.Assert(dctx_dtored, "dctx not success dtored") })
@@ -358,7 +359,7 @@ func init() {
 }
 func SetDebugQtMeta(on bool) { debugQtMeta = on }
 
-/////
+// ///
 var mdcache = &_QtMetaDatas{
 	mdos:      RwMap(),
 	signalfns: RwMap(),
@@ -487,7 +488,7 @@ func (this *_QtMetaDatas) GetC2go(cobj unsafe.Pointer) (interface{}, bool) {
 }
 func countSyncMap(m syncMap) int { return m.Len() }
 
-///
+// /
 type QMetaObjectData struct {
 	// per class members
 	Superdata          unsafe.Pointer
